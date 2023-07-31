@@ -154,6 +154,8 @@ img {
   width: 100%;
   background-color: var(--pressed-color);
   border-radius: 2px;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-contact {
@@ -379,7 +381,10 @@ img {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.customers-link:hover .customers-icon,
+.customers-link:hover .customers-icon {
+  fill: var(--pressed-color);
+}
+
 .customers-link:focus .customers-icon {
   fill: var(--pressed-color);
 }
@@ -394,7 +399,7 @@ img {
   background: var(--primary-dark-color);
 }
 
-.footer-content {
+.footer-section .container {
   display: flex;
   align-items: baseline;
 }
@@ -564,14 +569,6 @@ img {
 
   color: var(--primary-light-color);
 }
-
-/* .portfolio-cover-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  margin-top: 40px;
-  color: var(--primary-light-color);
-} */
 
 .backdrop {
   position: fixed;
