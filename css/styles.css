@@ -133,11 +133,15 @@ img {
   line-height: 1.5;
   letter-spacing: 0.32px;
   color: var(--primary-dark-color);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link:focus {
+  color: var(--pressed-color);
+}
+
+.current {
   color: var(--pressed-color);
 }
 
@@ -147,7 +151,8 @@ img {
   left: 0;
   bottom: -1px;
   height: 4px;
-  color: var(--pressed-color);
+  width: 100%;
+  background-color: var(--pressed-color);
   border-radius: 2px;
 }
 
@@ -166,7 +171,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.32px;
   color: var(--primary-text-color);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -363,14 +368,6 @@ img {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.customers-list-item:hover .customers-icon {
-  fill: var(--pressed-color);
-}
-
-.customers-link:focus .customers-icon {
-  fill: var(--pressed-color);
-}
-
 .customers-link {
   width: 168px;
   height: 88px;
@@ -380,6 +377,11 @@ img {
   border: 1px solid var(--icons-color);
   border-radius: 4px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.customers-link:hover .customers-icon,
+.customers-link:focus .customers-icon {
+  fill: var(--pressed-color);
 }
 
 .customers-link:hover,
@@ -506,7 +508,7 @@ img {
 
 .portfolio-card-link {
   display: block;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-card-link:hover,
@@ -514,10 +516,7 @@ img {
   box-shadow: var(--portfolio-card-shadow);
 }
 
-.portfolio-card-link:hover .portfolio-cover {
-  transform: translateY(0);
-}
-
+.portfolio-card-link:hover .portfolio-cover,
 .portfolio-card-link:focus .portfolio-cover {
   transform: translateY(0);
 }
@@ -553,19 +552,26 @@ img {
   position: absolute;
   top: 0;
   background-color: var(--brand-color);
+  width: 100%;
   height: 100%;
-  padding: 0 32px;
+  padding: 40px 32px;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
+  color: var(--primary-light-color);
 }
 
-.portfolio-cover-text {
+/* .portfolio-cover-text {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   margin-top: 40px;
   color: var(--primary-light-color);
-}
+} */
 
 .backdrop {
   position: fixed;
