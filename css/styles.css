@@ -19,6 +19,7 @@
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
   --filter-btn-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+  --footer-social-active: #31d0aa;
   --footer-social-title-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   --backdrop-color: rgba(46, 47, 66, 0.4);
   --modal-bg-color: #fcfcfc;
@@ -122,6 +123,7 @@ img {
 }
 
 .header-nav-item {
+  position: relative;
 }
 
 .nav-link {
@@ -137,9 +139,13 @@ img {
   color: var(--pressed-color);
 }
 
-.current {
-  color: var(--pressed-color);
-  border-bottom: 4px solid var(--pressed-color);
+.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  background-color: var(--pressed-color);
   border-radius: 2px;
 }
 
@@ -173,6 +179,8 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 188px 0;
 }
 
@@ -204,7 +212,7 @@ img {
   background-color: var(--brand-color);
   box-shadow: var(--hero-btn-shadow);
   cursor: pointer;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -291,7 +299,7 @@ img {
 }
 
 .team-card-content {
-  padding: 32px 16px;
+  padding: 32px 0;
   text-align: center;
 }
 
@@ -313,6 +321,11 @@ img {
 .social-links {
   display: flex;
   gap: 24px;
+  justify-content: center;
+}
+
+.social-icon {
+  fill: var(--primary-light-color);
 }
 
 .social-icon-style {
@@ -323,10 +336,15 @@ img {
   justify-content: center;
   border-radius: 50%;
   background-color: var(--brand-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-icon {
-  fill: var(--primary-white-color);
+.social-link-item:hover .social-icon-style {
+  background-color: var(--pressed-color);
+}
+
+.social-link:focus .social-icon-style {
+  background-color: var(--pressed-color);
 }
 
 .customers-section {
@@ -338,11 +356,20 @@ img {
   gap: 24px;
 }
 
-.customer-icon {
+.customers-icon {
   fill: var(--icons-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.customer-icon-style {
+.customers-list-item:hover .customers-icon {
+  fill: var(--pressed-color);
+}
+
+.customers-link:focus .customers-icon {
+  fill: var(--pressed-color);
+}
+
+.customers-icon-style {
   width: 168px;
   height: 88px;
   display: flex;
@@ -350,6 +377,15 @@ img {
   justify-content: center;
   border: 1px solid var(--icons-color);
   border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.customers-list-item:hover .customers-icon-style {
+  border-color: var(--pressed-color);
+}
+
+.customers-link:focus .customers-icon-style {
+  border-color: var(--pressed-color);
 }
 
 .footer-section {
@@ -386,6 +422,35 @@ img {
   color: var(--primary-white-color);
   text-shadow: var(--footer-social-title-shadow);
   margin-bottom: 16px;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.footer-social-icon {
+  fill: var(--primary-light-color);
+}
+
+.footer-social-style {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-item:hover .footer-social-style {
+  background-color: var(--footer-social-active);
+}
+
+.footer-social-link:focus .footer-social-style {
+  background-color: var(--footer-social-active);
 }
 
 .portfolio-section {
@@ -526,17 +591,37 @@ img {
 }
 
 .modal-close-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 24px;
   right: 24px;
+  padding: 0;
   border-radius: 50%;
-  border: 1px solid var(--icons-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--accent-color);
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: var(--pressed-color);
+  border: none;
 }
 
 .modal-close-icon {
   fill: var(--primary-dark-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:hover .modal-close-icon,
+.modal-close-btn:focus .modal-close-icon {
+  fill: var(--primary-white-color);
 }
 
 .is-hidden {
