@@ -365,32 +365,27 @@ img {
   gap: 24px;
 }
 
-.customers-icon {
-  fill: var(--icons-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .customers-link {
   width: 168px;
   height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--icons-color);
   border: 1px solid var(--icons-color);
   border-radius: 4px;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.customers-link:hover .customers-icon {
-  fill: var(--pressed-color);
-}
-
-.customers-link:focus .customers-icon {
-  fill: var(--pressed-color);
+.customers-icon {
+  fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link:hover,
 .customers-link:focus {
+  color: var(--pressed-color);
   border-color: var(--pressed-color);
 }
 
